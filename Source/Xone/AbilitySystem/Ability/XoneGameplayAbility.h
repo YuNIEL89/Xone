@@ -32,8 +32,20 @@ class XONE_API UXoneGameplayAbility : public UGameplayAbility
 public:
 	EXoneAbilityActivationPolicy GetActivationPolicy() const { return ActivationPolicy; }
 
-	UFUNCTION(BlueprintCallable, Category = "GAS|Ability")
+	UFUNCTION(BlueprintCallable, Category = "Xone|Ability")
 	AXoneCharacter* GetXoneCharacterFromActorInfo() const;
+
+	// Custom tick function bound to the movement component delegate
+	UFUNCTION(BlueprintImplementableEvent, Category = "Xone|Ability")
+	void OnAbilityTick(float DeltaTime);
+
+	// Enable ticking by binding to the movement component's tick delegate
+	UFUNCTION(BlueprintCallable, Category = "Xone|Ability")
+	void EnableAbilityTick();
+
+	// Disable ticking by unbinding from the movement component's tick delegate
+	UFUNCTION(BlueprintCallable, Category = "Xone|Ability")
+	void DisableAbilityTick();
 
 protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Xone|Ability Activation")

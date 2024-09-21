@@ -1,7 +1,7 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "XoneGameMode.h"
-#include "XoneCharacter.h"
+#include "Character/XoneCharacter.h"
 #include "UObject/ConstructorHelpers.h"
 
 AXoneGameMode::AXoneGameMode()

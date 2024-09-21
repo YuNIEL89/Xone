@@ -12,9 +12,10 @@ class USpringArmComponent;
 class UCameraComponent;
 class UInputMappingContext;
 class UInputAction;
-struct FInputActionValue; // remove
+struct FInputActionValue;
 class UXoneAbilitySystemComponent;
 class UXoneAbilitySet;
+class UXoneMovementComponent;
 
 DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Log, All);
 
@@ -57,8 +58,8 @@ protected:
 	UXoneAbilitySet* AbilitySet;
 
 public:
-	AXoneCharacter();
-	
+	AXoneCharacter(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
+
 	/** Gets the current ability system component, which may be owned by a different actor */
 	UFUNCTION(BlueprintPure, Category = "Xone|Pawn")
 	UXoneAbilitySystemComponent* GetXoneAbilitySystemComponent() const;

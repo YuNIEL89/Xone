@@ -13,13 +13,15 @@
 #include "AbilitySystem/XoneAbilitySystemComponent.h"
 #include "Player/XonePlayerState.h"
 #include "AbilitySystem/XoneAbilitySet.h"
+#include "XoneMovementComponent.h"
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 
 //////////////////////////////////////////////////////////////////////////
 // AXoneCharacter
 
-AXoneCharacter::AXoneCharacter()
+AXoneCharacter::AXoneCharacter(const FObjectInitializer& ObjectInitializer)
+	: Super(ObjectInitializer.SetDefaultSubobjectClass<UXoneMovementComponent>(ACharacter::CharacterMovementComponentName))
 {
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
